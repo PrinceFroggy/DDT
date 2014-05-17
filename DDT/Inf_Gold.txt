@@ -1,0 +1,25 @@
+aobscan(Gold, 39 00 89 48 ? 8B 47 ? 85 ? 7D ?)
+
+[Enable]
+
+alloc(INF_GOLD,256)
+label(exit)
+
+INF_GOLD:
+cmp [eax],eax
+cmp ecx,[eax+4C]
+jng exit
+mov [eax+4C],ecx
+jmp exit
+
+Gold:
+jmp INF_GOLD
+exit:
+
+[Disable]
+
+Gold:
+cmp [eax],eax
+mov [eax+4C],ecx
+
+dealloc(INF_GOLD)

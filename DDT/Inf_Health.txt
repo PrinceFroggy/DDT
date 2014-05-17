@@ -1,0 +1,26 @@
+aobscan(Health, 8B 45 ? 89 46 ? ? ? 7D ? C7 46 ? ? ? ? ? 8D)
+
+[Enable]
+
+alloc(INF_HEALTH,256)
+label(exit)
+
+INF_HEALTH:
+mov eax,[ebp+0C]
+cmp eax,[esi+54]
+jng exit
+mov [esi+54],eax
+jmp exit
+
+Health:
+jmp INF_HEALTH
+nop
+exit:
+
+[Disable]
+
+Health:
+mov eax,[ebp+0C]
+mov [esi+54],eax
+
+dealloc(INF_HEALTH)

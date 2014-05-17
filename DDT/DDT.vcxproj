@@ -114,6 +114,11 @@
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Inf_Gold.txt" />
+    <None Include="Inf_Health.txt" />
+    <None Include="Inf_Mana.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

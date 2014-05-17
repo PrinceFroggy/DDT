@@ -1,0 +1,26 @@
+aobscan(Mana, 8B 45 ? 89 48 ? ? ? 00 ? 8B EC ? ? ? ? ? ? 8B 40 ? 83 EC ? 50)
+
+[Enable]
+
+alloc(INF_MANA,256)
+label(exit)
+
+INF_MANA:
+mov eax,[ebp+08]
+cmp ecx,[eax+60]
+jng exit
+mov [eax+60],ecx
+jmp exit
+
+Mana:
+jmp INF_MANA
+nop
+exit:
+
+[Disable]
+
+Mana:
+mov eax,[ebp+08]
+mov [eax+60],ecx
+
+dealloc(INF_MANA)

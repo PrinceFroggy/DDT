@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{5f05b22f-cde5-4fce-a85a-f78b86889f76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h">
@@ -43,5 +46,16 @@
     <EmbeddedResource Include="Form1.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Inf_Health.txt">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Inf_Mana.txt">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="Inf_Gold.txt">
+      <Filter>Scripts</Filter>
+    </None>
   </ItemGroup>
 </Project>
