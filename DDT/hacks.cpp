@@ -31,7 +31,7 @@ void GetAddress(int i)
 
 		GetModuleSize(gM, &lpvDDBase, &dwDDSize);
 
-		FindPattern("8B 45 0C 89 46 54 ? ? 7D ? C7 46 ? ? ? ? ? 8D", &pf, lpvDDBase, dwDDSize);
+		FindPattern("8B 45 ? 89 46 ? ? ? 7D ? C7 46 ? ? ? ? ? 8D", &pf, lpvDDBase, dwDDSize);
 		healthAddr = pf.lpvResult;
 
 		MsgBoxAddy((DWORD)healthAddr);
