@@ -65,16 +65,24 @@ BOOL GetModuleSize(HMODULE hModule, LPVOID* lplpBase, LPDWORD lpdwSize)
 
 bool __stdcall MaskCompare(const unsigned char* lpData, const unsigned char* lpPattern, const char* pszMask) 
 { 
-    for (; *pszMask; ++pszMask, ++lpData, ++lpPattern) 
-        if (*pszMask == 'x' && *lpData != *lpPattern) 
-            return false; 
-    return (*pszMask) == NULL; 
+    for (; *pszMask; ++pszMask, ++lpData, ++lpPattern)
+	{
+        if (*pszMask == 'x' && *lpData != *lpPattern)
+		{
+			return false;
+		}
+	}
+	return (*pszMask) == NULL; 
 } 
 
 DWORD __stdcall FindPattern(unsigned char* lpData, unsigned int nDataSize, const unsigned char* lpPattern, const char* pszMask) 
 { 
     for (unsigned int x = 0; x < nDataSize; x++) 
-        if (MaskCompare(lpData + x, lpPattern, pszMask)) 
-            return (DWORD)(lpData + x); 
+	{
+		if (MaskCompare(lpData + x, lpPattern, pszMask)) 
+		{
+			return (DWORD)(lpData + x); 
+		}
+	}
     return 0; 
 }
