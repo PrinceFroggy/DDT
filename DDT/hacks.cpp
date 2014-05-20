@@ -1,12 +1,12 @@
 #include "functions.h"
 #include "hacks.h"
 
-LPVOID GetAddress(char *pattern, char *mask)
+DWORD GetAddress(char *pattern, char *mask)
 {
 	HINSTANCE game;
 	LPVOID base = 0;
 	DWORD size = 0;
-	LPVOID Addr;
+	DWORD Addr;
 
 	auto procID = ::GetCurrentProcessId();
 	game = (HINSTANCE)getGameProcessBaseAddress(procID);
@@ -29,11 +29,11 @@ LPVOID GetAddress(char *pattern, char *mask)
 			sprintf_s(info,1024,"%08X - %d", mbi.BaseAddress, mbi.RegionSize);
 			OutputDebugStringA(info);
 
-			Addr = (LPVOID)FindPattern((unsigned char*)mbi.BaseAddress, mbi.RegionSize, (BYTE*)pattern, mask);
+			Addr = FindPattern((unsigned char*)mbi.BaseAddress, mbi.RegionSize, (BYTE*)pattern, mask);
 			
 			if (Addr != 0)
 			{
-				MsgBoxAddress((DWORD)Addr);
+				MsgBoxAddress(Addr);
 				break;
 			}
 		}		
