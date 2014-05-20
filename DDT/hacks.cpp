@@ -25,19 +25,61 @@ DWORD GetAddress(char *pattern, char *mask)
 
 		if (mbi.State & MEM_COMMIT && (mbi.AllocationProtect & dwProtectionMask))
 		{
+			/*
 			char info[1024]={0};
 			sprintf_s(info,1024,"%08X - %d", mbi.BaseAddress, mbi.RegionSize);
 			OutputDebugStringA(info);
+			*/
 
 			Addr = FindPattern((unsigned char*)mbi.BaseAddress, mbi.RegionSize, (BYTE*)pattern, mask);
 			
 			if (Addr != 0)
 			{
-				MsgBoxAddress(Addr);
+				//MsgBoxAddress(Addr);
+
 				break;
 			}
 		}		
 	}
 
 	return Addr;
+}
+
+__declspec(naked) void HealthHook()
+{
+	__asm
+	{
+
+	}
+}
+
+void PatchHealth(DWORD address)
+{
+
+}
+
+__declspec(naked) void ManaHook()
+{
+	__asm
+	{
+
+	}
+}
+
+void PatchMana(DWORD address)
+{
+
+}
+
+__declspec(naked) void GoldHook()
+{
+	__asm
+	{
+
+	}
+}
+
+void PatchGold(DWORD address)
+{
+
 }
