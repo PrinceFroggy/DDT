@@ -6,3 +6,4 @@
 A DesktopDungeons trainer.
 
 - This trainer works for the current STEAM DesktopDungeons.
+- Hacks can only be activated once in a dungeon.
