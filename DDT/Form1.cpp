@@ -1,14 +1,7 @@
-#include <Windows.h>
-#include <tchar.h>
 #include "Form1.h"
 #include "hacks.h"
-#include <stdio.h>
 
 using namespace DDT;
-
-bool butt1Once = false;
-bool butt2Once = false;
-bool butt3Once = false;
 
 void Main(void)		
 {
@@ -22,40 +15,25 @@ void Form1::button1_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	label1->Focus();
 
-	if (!butt1Once)
-	{
-		GetAddress(1);
-	}
-	else
-	{
+	GetAddress("\x8B\x45\xFF\x89\x46\xFF\xFF\xFF\x7D\xFF\xC7\x46\xFF\xFF\xFF\xFF\xFF\x8D", "xx?xx???x?xx?????x");
 
-	}
+	button1->Enabled = false;
 }
 
 void Form1::button2_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	label1->Focus();
+	
+	//GetAddress();
 
-	if (!butt2Once)
-	{
-
-	}
-	else
-	{
-
-	}
+	button2->Enabled = false;
 }
 
 void Form1::button3_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	label1->Focus();
+	
+	//GetAddress();
 
-	if (!butt3Once)
-	{
-
-	}
-	else
-	{
-
-	}
+	button3->Enabled = false;
 }

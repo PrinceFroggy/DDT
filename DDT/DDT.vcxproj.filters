@@ -21,10 +21,10 @@
     <ClInclude Include="Form1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PatternFind.h">
+    <ClInclude Include="hacks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hacks.h">
+    <ClInclude Include="functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,10 +35,10 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PatternFind.cpp">
+    <ClCompile Include="hacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hacks.cpp">
+    <ClCompile Include="functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

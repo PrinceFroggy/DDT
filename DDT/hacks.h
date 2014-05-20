@@ -1,4 +1,3 @@
 #include <Windows.h>
 
-void SetGM(HINSTANCE hI);
-void GetAddress(int i);
+LPVOID GetAddress(char *pattern, char *mask);

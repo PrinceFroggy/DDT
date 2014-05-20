@@ -1,47 +1,43 @@
-#include <Windows.h>
+#include "functions.h"
 #include "hacks.h"
-#include "PatternFind.h"
-#include <stdio.h>
 
-HINSTANCE gM;
-
-PFSEARCH pf;
-LPVOID lpvDDBase = NULL;
-DWORD dwDDSize = 0;
-
-LPVOID healthAddr;
-
-void MsgBoxAddy(DWORD addy)
+LPVOID GetAddress(char *pattern, char *mask)
 {
-	char szBuffer[1024];
-	sprintf(szBuffer, "Addy: %02x", addy);
-	::MessageBox(NULL, szBuffer, "Title", MB_OK);
-}
+	HINSTANCE game;
+	LPVOID base = 0;
+	DWORD size = 0;
+	LPVOID Addr;
 
-void SetGM(HINSTANCE hI)
-{
-	gM = hI;
-}
+	auto procID = ::GetCurrentProcessId();
+	game = (HINSTANCE)getGameProcessBaseAddress(procID);
 
-void GetAddress(int i)
-{
-	switch (i)
+	GetModuleSize(game, &base, &size);
+
+	MEMORY_BASIC_INFORMATION mbi = {0};
+	unsigned char *pAddress = NULL, *pEndRegion = NULL;
+
+	DWORD dwProtectionMask = PAGE_EXECUTE_READWRITE;
+
+	while(sizeof(mbi) == VirtualQuery(pEndRegion, &mbi, sizeof(mbi)))
 	{
-	case 1:
+		pAddress = pEndRegion;
+		pEndRegion += mbi.RegionSize;
 
-		GetModuleSize(gM, &lpvDDBase, &dwDDSize);
+		if (mbi.State & MEM_COMMIT && (mbi.AllocationProtect & dwProtectionMask))
+		{
+			char info[1024]={0};
+			sprintf_s(info,1024,"%08X - %d", mbi.BaseAddress, mbi.RegionSize);
+			OutputDebugStringA(info);
 
-		FindPattern("8B 45 ? 89 46 ? ? ? 7D ? C7 46 ? ? ? ? ? 8D", &pf, lpvDDBase, dwDDSize);
-		healthAddr = pf.lpvResult;
-
-		MsgBoxAddy((DWORD)healthAddr);
-
-		break;
-
-	case 2:
-		break;
-
-	case 3:
-		break;
+			Addr = (LPVOID)FindPattern((unsigned char*)mbi.BaseAddress, mbi.RegionSize, (BYTE*)pattern, mask);
+			
+			if (Addr != 0)
+			{
+				MsgBoxAddress((DWORD)Addr);
+				break;
+			}
+		}		
 	}
+
+	return Addr;
 }

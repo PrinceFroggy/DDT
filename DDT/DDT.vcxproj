@@ -98,16 +98,16 @@
       <DebugInformationFormat Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Async</ExceptionHandling>
     </ClCompile>
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="hacks.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PatternFind.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="functions.h" />
     <ClInclude Include="hacks.h" />
-    <ClInclude Include="PatternFind.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
