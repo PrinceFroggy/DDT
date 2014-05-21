@@ -6,7 +6,7 @@
 A DesktopDungeons trainer.
 
 - This trainer works for the current STEAM DesktopDungeons.
-- Use a injector to inject the dynamic link library (.dll) into the DesktopDungeons.exe process
+- Use a injector to inject the dynamic link library (.dll) into the DesktopDungeons.exe process.
 - Hacks can only be activated once in a dungeon.
 - http://www.desktopdungeons.net/
 
