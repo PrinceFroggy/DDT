@@ -1,4 +1,5 @@
 #include "Form1.h"
+#include "functions.h"
 #include "hacks.h"
 
 using namespace DDT;
