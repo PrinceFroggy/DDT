@@ -1,5 +1,4 @@
 #include "functions.h"
-#include "hacks.h"
 
 void MsgBoxAddress(DWORD addy)
 {
