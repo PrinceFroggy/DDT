@@ -9,6 +9,6 @@ A DesktopDungeons trainer.
 - Use a injector to inject the dynamic link library (.dll) into the DesktopDungeons.exe process.
 - Hacks can only be activated once in a dungeon.
 
-Enjoy.
+Credits: Andrew Justin Solesa (https://github.com/Shrooms)
 
-http://www.desktopdungeons.net/
+References: http://www.desktopdungeons.net/
